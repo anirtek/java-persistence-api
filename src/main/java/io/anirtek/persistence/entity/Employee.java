@@ -2,17 +2,20 @@ package io.anirtek.persistence.entity;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class Employee {
 	@Id
-	String id;
-	String firstName;
-	String lastName;
-	String email;
-	String city;
+	private String id;
+	private String firstName;
+	private String lastName;
+	
+	@Column(columnDefinition="VARCHAR(100)", unique=true)
+	private String email;
+	private String city;
 
 	public Employee() {
 		this.id = UUID.randomUUID().toString();
