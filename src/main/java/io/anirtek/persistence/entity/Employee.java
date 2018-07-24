@@ -5,8 +5,15 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({ 
+	@NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e ORDER BY e.firstName"),
+	@NamedQuery(name = "Employee.findByEmail", query = "SELECT e FROM Employee e where e.email=:pEmail") 
+})
+	
 public class Employee {
 
 	@Id
