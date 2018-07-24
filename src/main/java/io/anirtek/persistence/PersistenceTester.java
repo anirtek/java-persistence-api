@@ -1,8 +1,11 @@
 package io.anirtek.persistence;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import io.anirtek.persistence.entity.Employee;
 
@@ -51,6 +54,11 @@ public class PersistenceTester {
 		// em.getTransaction().commit();
 		// }
 
+		// FIND ALL
+		TypedQuery<Employee> query = em.createQuery("SELECT e FROM Employee e", Employee.class);
+		List<Employee> employees = query.getResultList();
+		System.out.println(employees);
+		
 		em.close();
 		emf.close();
 	}
