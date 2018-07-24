@@ -1,4 +1,4 @@
-package io.anirtek.persistence;
+package io.anirtek.persistence.simple;
 
 import java.util.List;
 
@@ -6,8 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
-import io.anirtek.persistence.entity.Employee;
+import io.anirtek.persistence.simple.Employee;
 
 public class PersistenceTester {
 

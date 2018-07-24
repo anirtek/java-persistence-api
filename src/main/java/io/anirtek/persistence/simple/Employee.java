@@ -1,4 +1,4 @@
-package io.anirtek.persistence.entity;
+package io.anirtek.persistence.simple;
 
 import java.util.UUID;
 
@@ -9,11 +9,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQueries({ 
-	@NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e ORDER BY e.firstName"),
-	@NamedQuery(name = "Employee.findByEmail", query = "SELECT e FROM Employee e where e.email=:pEmail") 
-})
-	
+@NamedQueries({ @NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e ORDER BY e.firstName"),
+		@NamedQuery(name = "Employee.findByEmail", query = "SELECT e FROM Employee e where e.email=:pEmail") })
 public class Employee {
 
 	@Id
@@ -69,8 +66,8 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", city=" + city + "]";
+		return "Employee [id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + ", email = " + email
+				+ ", city = " + city + "]";
 	}
 
 }
