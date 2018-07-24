@@ -8,18 +8,22 @@ import javax.persistence.Id;
 
 @Entity
 public class Employee {
+
 	@Id
 	private String id;
+
 	private String firstName;
 	private String lastName;
-	
-	@Column(columnDefinition="VARCHAR(100)", unique=true)
+
+	@Column(columnDefinition = "VARCHAR(100)", unique = true)
 	private String email;
+
 	private String city;
 
 	public Employee() {
 		this.id = UUID.randomUUID().toString();
 	}
+
 	public String getId() {
 		return id;
 	}
@@ -54,6 +58,12 @@ public class Employee {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", city=" + city + "]";
 	}
 
 }

@@ -13,25 +13,20 @@ public class PersistenceTester {
 		
 		EntityManager em = emf.createEntityManager();
 		
-		/**
-		 * Create one object
-		 */
+		//INSERT INTO action
 		Employee emp = new Employee();
-		emp.setFirstName("aniruddha");
-		emp.setLastName("tekade");
-		emp.setEmail("atekade1@binghamton.edu");
-		emp.setCity("New York");
+		emp.setFirstName("Mayank");
+		emp.setLastName("Jain");
+		emp.setEmail("mjain8@binghamton.edu");
+		emp.setCity("San Francisco");
 		
-		/**
-		 * Now let's write this object into the database of MySQL
-		 */
 		em.getTransaction().begin();
 		em.persist(emp);
 		em.getTransaction().commit();
+
 		
 		em.close();
 		
-		emf.close();
+//		emf.close();
 	}
-
 }
