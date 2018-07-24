@@ -55,7 +55,14 @@ public class PersistenceTester {
 		// }
 
 		// FIND ALL
-		TypedQuery<Employee> query = em.createQuery("SELECT e FROM Employee e", Employee.class);
+		// TypedQuery<Employee> query = em.createQuery("SELECT e FROM Employee e",
+		// Employee.class);
+		// List<Employee> employees = query.getResultList();
+		// System.out.println(employees);
+		
+		//FIND BY EMAIL
+		TypedQuery<Employee> query = em.createQuery("SELECT e FROM Employee e where e.email=:pEmail", Employee.class); //pEmail is just a name used
+		query.setParameter("pEmail", "atekade1@binghamton.edu");
 		List<Employee> employees = query.getResultList();
 		System.out.println(employees);
 		
