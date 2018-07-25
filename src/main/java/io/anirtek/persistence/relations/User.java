@@ -1,10 +1,16 @@
 package io.anirtek.persistence.relations;
 
 import java.util.UUID;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class User {
@@ -20,6 +26,24 @@ public class User {
 	 */
 	@OneToOne
 	private Address address;
+
+	/**
+	 * One user has more than one address e.g. home, office, etc
+	 */
+	// @OneToMany
+	// private List<Address> addresses;
+
+	/**
+	 * Many users will have one address
+	 */
+	// @ManyToOne
+	// private Address address;
+
+	/**
+	 * Many users will have many addresses
+	 */
+	// @ManyToMany
+	// private List<Address> addresses;
 
 	public User() {
 		this.id = UUID.randomUUID().toString();
@@ -55,7 +79,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id = " + id + ", firstName = " + firstName + "]";
+		return "User [id = " + id + ", firstName = " + firstName + ", lastName = " + lastName + "]";
 	}
 
 }
